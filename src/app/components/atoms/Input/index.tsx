@@ -17,7 +17,7 @@ const sizes = {
 
 const Input = ({ type, placeholder, value, onChange, disabled, className, size, ...props }: InputProps) => {
     return (
-        <input type={type} placeholder={placeholder} value={value} onChange={onChange} disabled={disabled} className={"" + className + " " + sizes[size || "medium"]} {...props} />
+        <input type={type} placeholder={placeholder} value={value} onChange={onChange} disabled={disabled} className={`border rounded-md ${className} ${sizes[size || "medium"]}`} {...props} />
     )
 }
 

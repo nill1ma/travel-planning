@@ -1,13 +1,5 @@
+import { Travel } from "@/app/types/travel";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface Travel {
-    id?: string;
-    name: string;
-    description: string;
-    status: "pending" | "in_progress" | "completed" | "planning";
-    startDate: string;
-    endDate: string;
-}
 
 type TravelState = {
     value: Travel
@@ -16,9 +8,9 @@ type TravelState = {
 const initialState: TravelState = {
     value: {
         id: "",
-        name: "",
-        description: "",
-        status: "pending",
+        destiny: "",
+        reason: "",
+        status: "planning",
         startDate: "",
         endDate: ""
     }
@@ -28,6 +20,9 @@ const travelPanningMutationSlice = createSlice({
     name: "travelPanningMutation",
     initialState,
     reducers: {
+        resetTravelPanningMutation: (state) => {
+            state.value = { ...initialState.value }
+        },
         addTravel: (state, action: PayloadAction<Travel>) => {
             state.value = { ...action.payload }
         },
@@ -40,5 +35,5 @@ const travelPanningMutationSlice = createSlice({
     }
 })
 
-export const { addTravel, removeTravel, updateTravel } = travelPanningMutationSlice.actions
+export const { addTravel, removeTravel, updateTravel, resetTravelPanningMutation } = travelPanningMutationSlice.actions
 export default travelPanningMutationSlice.reducer

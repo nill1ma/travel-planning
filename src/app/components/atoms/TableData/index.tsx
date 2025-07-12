@@ -2,10 +2,11 @@ interface TableDataProps {
     children: React.ReactNode | string;
     style?: React.CSSProperties;
     className?: string;
+    colSpan?: number;
 }
-const TableData = ({children, style, className}: TableDataProps) => {
+const TableData = ({children, style, className, colSpan}: TableDataProps) => {
     return (
-        <td style={style} className={`h-auto leading-none ${className || ''}`}>{children}</td>
+        <td style={style} className={`h-auto leading-none ${className || ''}`} colSpan={colSpan}>{children}</td>
     )
 }
 

@@ -13,7 +13,7 @@ interface SideBarProps {
 const SideBar = ({ style, className }: SideBarProps) => {
 
     const [menu, setMenu] = useState([
-        { id: "travels", label: "Travels", active: false, href: "/list" },
+        { id: "travels", label: "Travels", active: true, href: "/list" },
         { id: "create", label: "Create", active: false, href: "/create" },
         { id: "settings", label: "Settings", active: false, href: "/settings" },
     ])

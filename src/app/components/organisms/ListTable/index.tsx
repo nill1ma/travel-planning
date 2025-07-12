@@ -3,14 +3,16 @@ import TableBody from "../../atoms/TableBody";
 import TableHeader from "../../atoms/TableHeader";
 import TableRow from "../../atoms/TableRow";
 import TableData from "../../atoms/TableData";
-import { List, ColorStatuses, Statuses } from "@/app/types/list";
+import { ColorStatuses, Statuses, Travel } from "@/app/types/travel";
 import Badge from "../../atoms/Badge";
 
 interface ListTableProps {
     style?: React.CSSProperties;
-    travelData: List[];
+    travelData: Travel[];
+    emptyMessage?: string;
 }
-const ListTable = ({style, travelData}: ListTableProps) => {
+const ListTable = ({style, travelData, emptyMessage}: ListTableProps) => {
+
     return (
         <Table style={style} className="w-full">
             <TableHeader className="border-b">
@@ -24,7 +26,7 @@ const ListTable = ({style, travelData}: ListTableProps) => {
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {travelData.map((item) => (
+                {travelData && travelData.length > 0 ? travelData.map((item) => (
                     <TableRow key={item.id}>
                         <TableData className="px-3 py-2 border-b">{item.destiny}</TableData>
                         <TableData className="px-3 py-2 border-b">{item.startDate}</TableData>
@@ -33,7 +35,7 @@ const ListTable = ({style, travelData}: ListTableProps) => {
                         <TableData className="px-3 py-2 border-b">{item.createdAt}</TableData>
                         <TableData className="px-3 py-2 border-b">{item.updatedAt}</TableData>
                     </TableRow>
-                ))}
+                )) : <TableRow><TableData className="text-center" colSpan={6}>{emptyMessage}</TableData></TableRow>}
             </TableBody>
         </Table>
     )

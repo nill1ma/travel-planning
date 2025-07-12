@@ -9,7 +9,7 @@ interface FormGroupProps {
 }
 const FormGroup = ({label, style, className, inputProps}: FormGroupProps) => {
     return (
-        <div style={style} className={className}>
+        <div style={style} className={`flex flex-col gap-2 ${className}`}>
             <InputLabel>{label}</InputLabel>
             <Input {...inputProps} />   
         </div>
