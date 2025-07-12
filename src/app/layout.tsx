@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/organisms/SideBar";
 import Header from "./components/organisms/Header";
-import { ReduxProviderWrapper } from "../redux/provider";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,9 +41,9 @@ export default function RootLayout({
           <Header/>
             <div className="flex w-full h-[90%] relative">
                 <SideBar/>
-                <ReduxProviderWrapper>
+                <Providers>
                   {children}
-                </ReduxProviderWrapper>
+                </Providers>
             </div>
       </body>
     </html>
