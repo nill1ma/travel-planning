@@ -12,26 +12,26 @@ interface ListTableProps {
 }
 const ListTable = ({style, travelData}: ListTableProps) => {
     return (
-        <Table style={style} className="border-collapse border border-gray-500 w-[50%]">
-            <TableHeader>
+        <Table style={style} className="w-full">
+            <TableHeader className="border-b">
                 <TableRow>
-                    <TableData>Destiny</TableData>
-                    <TableData>Start Date</TableData>
-                    <TableData>End Date</TableData>
-                    <TableData>Status</TableData>
-                    <TableData>Created At</TableData>
-                    <TableData>Updated At</TableData>
+                    <TableData className="px-3 py-2 border-b">Destiny</TableData>
+                    <TableData className="px-3 py-2 border-b">Start Date</TableData>
+                    <TableData className="px-3 py-2 border-b">End Date</TableData>
+                    <TableData className="px-3 py-2 border-b">Status</TableData>
+                    <TableData className="px-3 py-2 border-b">Created</TableData>
+                    <TableData className="px-3 py-2 border-b">Last update</TableData>
                 </TableRow>
             </TableHeader>
             <TableBody>
                 {travelData.map((item) => (
                     <TableRow key={item.id}>
-                        <TableData>{item.destiny}</TableData>
-                        <TableData>{item.startDate}</TableData>
-                        <TableData>{item.endDate}</TableData>
-                        <TableData><Badge variant={ColorStatuses[item.status]}>{Statuses[item.status]}</Badge></TableData>
-                        <TableData>{item.createdAt}</TableData>
-                        <TableData>{item.updatedAt}</TableData>
+                        <TableData className="px-3 py-2 border-b">{item.destiny}</TableData>
+                        <TableData className="px-3 py-2 border-b">{item.startDate}</TableData>
+                        <TableData className="px-3 py-2 border-b">{item.endDate}</TableData>
+                        <TableData className="px-3 py-2 border-b"><Badge variant={ColorStatuses[item.status]}>{Statuses[item.status]}</Badge></TableData>
+                        <TableData className="px-3 py-2 border-b">{item.createdAt}</TableData>
+                        <TableData className="px-3 py-2 border-b">{item.updatedAt}</TableData>
                     </TableRow>
                 ))}
             </TableBody>

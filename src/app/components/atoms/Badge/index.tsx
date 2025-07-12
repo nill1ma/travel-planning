@@ -17,8 +17,13 @@ const variants = {
 
 const Badge = ({ children, variant, ...props }: BadgeProps) => {
     return (
-        <div {...props} className={`rounded-full flex items-center justify-center ${variants[variant]}`}>{children}</div>
-    )
+        <span
+            {...props}
+            className={`inline-block rounded-md leading-none px-1 py-1 font-bold ${variants[variant]}`}
+        >
+            {children}
+        </span>
+    );
 }
 
 export default Badge

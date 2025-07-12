@@ -23,17 +23,17 @@ const SideBar = ({ style, className }: SideBarProps) => {
         setMenu(menu.map((item) => item.id === id ? { ...item, active: true } : { ...item, active: false }))
     }
     return (
-        <div className={`h-screen w-32 bg-sky-500`}>
+        <div className={`h-full w-[15%] bg-stone-800`}>
             <BaseList variant="ul" style={style} className="w-full flex flex-col align-center">
                 {menu?.map((item) => (
                      <Link  
-                        className={`${item.active ? "bg-sky-600 font-bold" : ""} py-5 w-full cursor-pointer text-white flex justify-center`}    
+                        className={`${item.active ? "bg-stone-50 font-bold text-stone-800" : "text-white"} py-5 w-full cursor-pointer  flex justify-center`}    
                         href={item.href}
                         key={item.id} 
+                        onClick={() => handleSetMenu(item.id)} 
                     >
                         <BaseListItem 
                             className="text-left w-[50%]" 
-                            onClick={() => handleSetMenu(item.id)} 
                         >
                         {item.label}
                         </BaseListItem>

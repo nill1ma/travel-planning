@@ -5,7 +5,7 @@ interface TableProps {
 }
 const Table = ({children, style, className}: TableProps) => {
     return (
-        <table style={style} className={className}>
+        <table style={style} className={`${className} `}>
             {children}
         </table>
     )
