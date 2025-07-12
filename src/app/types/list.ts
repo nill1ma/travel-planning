@@ -3,7 +3,7 @@ export interface List {
     destiny: string;
     startDate?: string;
     endDate?: string;
-    status: "pending" | "in_progress" | "completed";
+    status: "pending" | "in_progress" | "completed" | "planning";
     createdAt: string;
     updatedAt: string;
 }
@@ -11,13 +11,15 @@ export interface List {
 export enum Statuses {
     "pending" = "Pending",
     "in_progress" = "In Progress",
-    "completed" = "Completed"
+    "completed" = "Completed",
+    "planning" = "Planning"
 }
 
 export enum ColorStatuses {
     "pending" = "secondary",
     "in_progress" = "primary",
-    "completed" = "success"
+    "completed" = "success",
+    "planning" = "warning"
 }
 
 export type TravelItinerary = Omit<List, "destiny"> & {name: string, description: string};

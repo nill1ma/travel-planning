@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "./components/organisms/SideBar";
 import Header from "./components/organisms/Header";
+import { ReduxProviderWrapper } from "../redux/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,11 +38,13 @@ export default function RootLayout({
           flexDirection: "column",
         }}
       >
-        <Header/>
-        <div className="flex w-full h-[80%] relative">
-        <SideBar/>
-          {children}
-        </div>
+          <Header/>
+            <div className="flex w-full h-[90%] relative">
+                <SideBar/>
+                <ReduxProviderWrapper>
+                  {children}
+                </ReduxProviderWrapper>
+            </div>
       </body>
     </html>
   );
